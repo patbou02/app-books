@@ -9,7 +9,12 @@ function BookShow({ book, onDelete, onEdit }) {
 
   const handleEditClick = () => setShowEdit(!showEdit);
 
-  const content = (!showEdit) ? <h3>{book.title}</h3> : <BookEdit book={book} onEdit={onEdit} />;
+  const handleSubmit = (id, newTitle) => {
+    onEdit(id, newTitle);
+    setShowEdit(false);
+  };
+
+  const content = (!showEdit) ? <h3>{book.title}</h3> : <BookEdit book={book} onSubmit={handleSubmit} />;
 
   return (
     <div className="book-show">
