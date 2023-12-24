@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import BookEdit from './BookEdit';
 
-function BookShow({ book, onDelete }) {
+function BookShow({ book, onDelete, onEdit }) {
 
   const [showEdit, setShowEdit] = useState(false);
 
@@ -9,7 +9,7 @@ function BookShow({ book, onDelete }) {
 
   const handleEditClick = () => setShowEdit(!showEdit);
 
-  const content = (!showEdit) ? <h3>{book.title}</h3> : <BookEdit book={book} />;
+  const content = (!showEdit) ? <h3>{book.title}</h3> : <BookEdit book={book} onEdit={onEdit} />;
 
   return (
     <div className="book-show">
