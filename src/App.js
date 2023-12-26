@@ -17,9 +17,12 @@ function App() {
   // fetch books initially on Application load.
   useEffect(() => fetchBooks(), []);
 
-  const deleteBookById = id => {
+  const deleteBookById = async id => {
     console.log('Need to DELETE the book with ID:', id);
-    const updatedBooks = books.filter((book) => book.id !== id);
+
+    await axios.delete(`http://localhost:3001/books/${id}`);
+
+    const updatedBooks = books.filter(book => book.id !== id);
     setBooks(updatedBooks);
   };
 
