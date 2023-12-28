@@ -1,0 +1,26 @@
+# GET all books.
+GET http://localhost:3001/books HTTP/1.1
+Content-Type: application/json
+
+###
+# CREATE a book.
+POST http://localhost:3001/books HTTP/1.1
+Content-Type: application/json
+
+{
+  "title": "Aquaman"
+}
+
+###
+# EDIT a book based on its ID.
+PUT http://localhost:3001/books/1 HTTP/1.1
+Content-Type: application/json
+
+{
+  "title": "The Bourne Identity"
+}
+
+###
+# DELETE a book based on its ID.
+DELETE http://localhost:3001/books/2 HTTP/1.1
+Content-Type: application/json
